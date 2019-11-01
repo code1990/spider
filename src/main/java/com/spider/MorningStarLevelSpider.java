@@ -2,17 +2,40 @@ package com.spider;
 
 import com.SpiderApplication;
 import com.entity.FundSnapshot;
+//import org.apache.tomcat.util.http.fileupload.FileUtils;
 import com.util.SpiderUtil;
 import org.openqa.selenium.*;
+import org.openqa.selenium.Rectangle;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+//import java.awt.Rectangle;
+import java.awt.Robot;
+import java.awt.Toolkit;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 
+import javax.imageio.ImageIO;
+
+import org.apache.commons.io.FileUtils;
+import org.openqa.selenium.By;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.Point;
+import org.openqa.selenium.TakesScreenshot;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.internal.WrapsDriver;
+import javax.imageio.ImageIO;
+import java.awt.*;
+import java.awt.image.BufferedImage;
+import java.io.File;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Date;
+import java.util.*;
 import java.util.List;
 
 /**
@@ -20,52 +43,52 @@ import java.util.List;
  * @description
  * @date 2019/10/31
  */
-public class MorningStarSpider {
+public class MorningStarLevelSpider {
     public static final String BASE_URL = "http://cn.morningstar.com/quickrank/default.aspx";
     private static final SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-    private static Logger logger = LoggerFactory.getLogger(MorningStarSpider.class);
+    private static Logger logger = LoggerFactory.getLogger(MorningStarLevelSpider.class);
     static {
         String driverClassPath = SpiderApplication.class.getClassLoader().getResource("chromedriver.exe").getPath();
         System.setProperty("webdriver.chrome.driver", driverClassPath);
     }
-    public static List<FundSnapshot> getPageList(int pageNum){
-        List<FundSnapshot> list = new ArrayList<>();
+    public static void getPageList(int pageNum){
         WebDriver driver = new ChromeDriver();
-        //设置浏览器尺寸
-//        Dimension dimension = new Dimension(20, 20);
-//        driver.manage().window().setSize(dimension);
         driver.get(BASE_URL);
         //点击翻页
         ((JavascriptExecutor) driver).executeScript("javascript:__doPostBack('ctl00$cphMain$AspNetPager1','"+pageNum+"')");
+//        ((JavascriptExecutor) driver).executeScript("javascript:__doPostBack('ctl00$cphMain$lbPerformance','')");
+
 //        if(pageNum!=1){
 //            int clickNum = pageNum-1;
 //            int tmp =2;
 //            while (clickNum!=0){
 //                WebElement pagerId = driver.findElement(By.id("ctl00_cphMain_AspNetPager1"));
 //                List<WebElement> pagerSize = pagerId.findElements(By.tagName("a"));
+//                String href = "";
 //                if(pagerSize.size()==14){
 //                    pagerSize.get(12).click();
+////                    System.out.println(pagerSize.get(12));
+////                    href = pagerSize.get(12).getAttribute("href");
 //                } else if(pagerSize.size()==15){
 //                    pagerSize.get(13).click();
+////                    href = pagerSize.get(13).getAttribute("href");
 //                    //已经查询到了最后一页
 //                } else if(pagerSize.size()==5){
 //                    pagerSize.get(3).click();
+//                    href = pagerSize.get(3).getAttribute("href");
 //                }
-////                String href = pagerSize.get(12).getAttribute("href");
 ////                String currentPage = href.split(",")[1].replaceAll("'","").replace(")","");
-////                System.out.println(currentPage);
 //                System.out.println("currentPage"+tmp++);
 //                clickNum--;
 //            }
 //
-//
+//            //翻页加载需要时间 先等待一下
+            try {
+                Thread.sleep(2000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
 //        }
-        //翻页加载需要时间 先等待一下
-        try {
-            Thread.sleep(1000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
         WebElement qrGrid = driver.findElement(By.id("qr_grid"));
         List<WebElement> tr = qrGrid.findElements(By.tagName("tr"));
         logger.error("第"+pageNum+"页爬取>>>>>>>>>>>begin");
@@ -113,21 +136,24 @@ public class MorningStarSpider {
                 sb.append(td.get(j).getText().trim() + "\t");
             }
             snapshot.setCreateTime(new Date());
-            snapshot.setLever3("0");
-            snapshot.setLever5("0");
             snapshot.setPageSize(pageNum);
             logger.error(sb.toString());
-            list.add(snapshot);
         }
-        //截图
         SpiderUtil.cutScreen(driver,pageNum);
+//        Thread.sleep(2000);
+//        driver.quit();
+//        driver.quit();
         driver.quit();
-        logger.error("第"+pageNum+"页爬取>>>>>>>>>>>end\t,\t数量"+list.size());
-        return list;
+        logger.error("第"+pageNum+"页爬取>>>>>>>>>>>end\t,\t数量");
+//        return list;
     }
 
     public static void main(String[] args) throws InterruptedException {
-        System.out.println(Arrays.toString(getPageList(1).toArray()));
+//        System.out.println(Arrays.toString(.toArray()));
+        for(int i =1;i<=33;i++){
+            getPageList(i);
+        }
+
     }
 }
 

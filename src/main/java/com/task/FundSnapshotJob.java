@@ -42,7 +42,7 @@ public class FundSnapshotJob {
         try {
             int allNumber = 361;
 //            int beginSize = (int)fundSnapshotDao.count()/25+1;
-            int beginSize = 33;
+            int beginSize = 112;//
             for(int i =beginSize;i<allNumber;i++){
                 List<FundSnapshot> fundSnapshots = MorningStarSpider.getPageList(i);
                 logger.error("第"+i+"页数据保存>>>>>>>>>>>begin");
