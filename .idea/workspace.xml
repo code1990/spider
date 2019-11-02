@@ -2,41 +2,43 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="96655831-bfbb-4a1e-a89d-4d36a9377f8f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/$PRODUCT_WORKSPACE_FILE$" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/$PROJECT_FILE$" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/qaplug_profiles.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/SpiderApplication.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/dao/FundSnapshotDao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/demo/UserDao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/entity/FundSnapshot.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/spider/MorningStarSpider.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/task/FundSnapshotJob.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/application.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/logback.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dictionaries/admin.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sbt.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/dao/FundOperationDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/dao/FundPerformanceDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/dao/FundPortfolioDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/entity/FundOperation.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/entity/FundPortfolio.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/spider/FundPerformanceSpider.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/spider/FundPortfolioSpider.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/spider/FundSnapshotSpiderLess.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/task/FundOperationJob.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/task/FundPerformanceJob.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/task/FundPortfolioJob.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/task/FundSnapshotJobLess.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/sql.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/tmp.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/tmp.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/SpiderApplicationTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/TxtUtil.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/MyTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/demo/MyTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/Test.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/demo/Test.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/TxtUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/util/TxtUtil.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/Test.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/Test.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/TxtUtil.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/TxtUtil.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-archiver/pom.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/spider-1.0-SNAPSHOT.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/dao/FundSnapshotDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dao/FundSnapshotDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/entity/FundPerformance.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/entity/FundPerformance.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/spider/MorningStarLevelSpider.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/spider/FundOperationSpider.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/spider/MorningStarSpider.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/spider/FundSnapshotSpider.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/task/FundSnapshotJob.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/task/FundSnapshotJob.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/MyTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/SpiderApplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/SpiderApplication.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/Test.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/TxtUtil.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/config/JobConfig.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/dao/UserDao.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/entity/FundSnapshot.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/entity/FundSnapshot.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/entity/User.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/spider/MorningStarSpider.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/task/FundSnapshotJob.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/task/FundSnapshotJob.class" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -95,6 +97,7 @@
   </component>
   <component name="ProjectId" id="1SxIiqvkpUDqeibWBVbTquI5Myn" />
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="DatabaseDriversLRU" value="mysql" />
     <property name="RequestMappingsPanelOrder0" value="0" />
     <property name="RequestMappingsPanelOrder1" value="1" />
@@ -103,7 +106,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/resources" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/java/com/util" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
@@ -114,11 +117,15 @@
       <recent name="com.spider" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="com.dao" />
       <recent name="com.task" />
+      <recent name="com.spider" />
+      <recent name="com.dao" />
       <recent name="com.entity" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\github\java1234\spider\src\main\java\com\util" />
+      <recent name="D:\github\java1234\spider\src\test\java\com" />
+      <recent name="D:\github\java1234\spider\src" />
       <recent name="D:\github\java1234\spider\src\main\resources" />
     </key>
   </component>
@@ -134,9 +141,9 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Spring Boot.SpiderApplication">
-    <configuration name="MorningStarSpider" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.spider.MorningStarSpider" />
+  <component name="RunManager" selected="Application.FundPortfolioSpider">
+    <configuration name="FundOperationSpider" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.spider.FundOperationSpider" />
       <module name="spider" />
       <extension name="coverage">
         <pattern>
@@ -144,6 +151,51 @@
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="FundPortfolioSpider" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.spider.FundPortfolioSpider" />
+      <module name="spider" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.spider.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="EntityUtil.getList" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="spider" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.util.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.util" />
+      <option name="MAIN_CLASS_NAME" value="com.util.EntityUtil" />
+      <option name="METHOD_NAME" value="getList" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SpiderApplicationTest.testInsert" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="spider" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com" />
+      <option name="MAIN_CLASS_NAME" value="com.SpiderApplicationTest" />
+      <option name="METHOD_NAME" value="testInsert" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -163,8 +215,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.FundPortfolioSpider" />
+        <item itemvalue="Application.FundOperationSpider" />
+        <item itemvalue="JUnit.EntityUtil.getList" />
         <item itemvalue="Spring Boot.SpiderApplication" />
-        <item itemvalue="Application.MorningStarSpider" />
+        <item itemvalue="JUnit.SpiderApplicationTest.testInsert" />
       </list>
     </recent_temporary>
   </component>
@@ -198,7 +253,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1572498949457</updated>
-      <workItem from="1572498951981" duration="22157000" />
+      <workItem from="1572498951981" duration="22698000" />
+      <workItem from="1572567813863" duration="2859000" />
+      <workItem from="1572575273653" duration="12907000" />
+      <workItem from="1572638263726" duration="7631000" />
+      <workItem from="1572650459916" duration="21768000" />
+      <workItem from="1572695844412" duration="4188000" />
     </task>
     <servers />
   </component>
@@ -210,7 +270,9 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>

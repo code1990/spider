@@ -1,14 +1,19 @@
 package com.task;
 
-import com.spider.FundSnapshotSpider;
+import com.SpiderApplication;
 import com.dao.FundSnapshotDao;
 import com.entity.FundSnapshot;
+import com.spider.FundSnapshotSpider;
+import com.spider.FundSnapshotSpiderLess;
+import com.util.TxtUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.stereotype.Component;
 
+import javax.annotation.PostConstruct;
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -18,14 +23,15 @@ import java.util.List;
  */
 @Component
 @EnableScheduling
-public class FundSnapshotJob {
+public class FundSnapshotJobLess {
+    private static final String TMP_PATH = SpiderApplication.class.getClassLoader().getResource("tmp.txt").getPath();
 
-    private Logger logger = LoggerFactory.getLogger(FundSnapshotJob.class);
+    private Logger logger = LoggerFactory.getLogger(FundSnapshotJobLess.class);
     @Autowired
     private FundSnapshotDao fundSnapshotDao;
 
 //    @Scheduled(cron = "${webmagic.job.cron}")
-//    @PostConstruct//启动项目则开启
+    @PostConstruct//启动项目则开启
     public void job() {
 
         long startTime, endTime;
@@ -33,20 +39,11 @@ public class FundSnapshotJob {
         startTime = System.currentTimeMillis();
         logger.info("爬取地址：" + FundSnapshotSpider.BASE_URL);
         try {
-            int allNumber = 361;
-            int beginSize = (int)fundSnapshotDao.count()/25+1;
-            System.out.println(beginSize);
-//            int beginSize = 361;//
-            for(int i =beginSize;i<=allNumber;i++){
-                List<FundSnapshot> fundSnapshots = FundSnapshotSpider.getPageList(i);
-                logger.error("第"+i+"页数据保存>>>>>>>>>>>begin");
-                if(fundSnapshots.get(0).getFundName().equals("")){
-                    break;
-                }
-                fundSnapshotDao.saveAll(fundSnapshots);
-                logger.error("第"+i+"页数据保存>>>>>>>>>>>end\t,\t数量"+fundSnapshots.size());
-            }
-
+            List<String> fundCodeList = TxtUtil.readTxt(TMP_PATH);
+            logger.error(Arrays.toString(fundCodeList.toArray()));
+            List<FundSnapshot> fundSnapshots = FundSnapshotSpiderLess.getLessList(fundCodeList);
+            logger.error(Arrays.toString(fundSnapshots.toArray()));
+            fundSnapshotDao.saveAll(fundSnapshots);
         } catch (Exception e) {
             logger.error(e.getMessage(), e);
         }

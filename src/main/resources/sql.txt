@@ -1,0 +1,22 @@
+update  t_fund_snapshot
+set year_pay_percent=null
+where year_pay_percent='-';
+select count(*) from t_fund_snapshot where year_pay_percent='-';
+
+CREATE TABLE t_fund_snapshot_bak SELECT * FROM t_fund_snapshot;
+
+CREATE TABLE t_fund_performance_bak SELECT * FROM t_fund_performance;
+
+select count(*) from t_fund_snapshot;
+
+select count(*) from t_fund_performance;
+
+select fund_code from t_fund_performance
+where fund_code not in (
+select fund_code from t_fund_snapshot
+);
+
+select count(page_size),page_size from t_fund_snapshot group by page_size;
+
+insert into t_fund_snapshot_bak select * from t_fund_snapshot;
+

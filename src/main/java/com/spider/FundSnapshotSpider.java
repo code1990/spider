@@ -20,10 +20,10 @@ import java.util.List;
  * @description
  * @date 2019/10/31
  */
-public class MorningStarSpider {
+public class FundSnapshotSpider {
     public static final String BASE_URL = "http://cn.morningstar.com/quickrank/default.aspx";
     private static final SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-    private static Logger logger = LoggerFactory.getLogger(MorningStarSpider.class);
+    private static Logger logger = LoggerFactory.getLogger(FundSnapshotSpider.class);
     static {
         String driverClassPath = SpiderApplication.class.getClassLoader().getResource("chromedriver.exe").getPath();
         System.setProperty("webdriver.chrome.driver", driverClassPath);
@@ -93,19 +93,27 @@ public class MorningStarSpider {
                         break;
                     case 7:
                         try {
-                            snapshot.setValueDate(sdf.parse(info));
+                            if(!info.equals("-")){
+                                snapshot.setValueDate(sdf.parse(info));
+                            }
                         } catch (ParseException e) {
                             e.printStackTrace();
                         }
                         break;
                     case 8:
-                        snapshot.setUnitValue(info);
+                        if(!info.equals("-")){
+                            snapshot.setUnitValue(info);
+                        }
                         break;
                     case 9:
-                        snapshot.setValueDayChange(info);
+                        if(!info.equals("-")){
+                            snapshot.setValueDayChange(info);
+                        }
                         break;
                     case 10:
-                        snapshot.setYeaPayPercent(info);
+                        if(!info.equals("-")){
+                            snapshot.setYeaPayPercent(info);
+                        }
                         break;
                     default:
                         break;

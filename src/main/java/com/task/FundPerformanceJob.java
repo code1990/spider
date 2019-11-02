@@ -1,8 +1,8 @@
 package com.task;
 
-import com.spider.FundSnapshotSpider;
-import com.dao.FundSnapshotDao;
-import com.entity.FundSnapshot;
+import com.dao.FundPerformanceDao;
+import com.entity.FundPerformance;
+import com.spider.FundPerformanceSpider;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,33 +18,38 @@ import java.util.List;
  */
 @Component
 @EnableScheduling
-public class FundSnapshotJob {
+public class FundPerformanceJob {
 
-    private Logger logger = LoggerFactory.getLogger(FundSnapshotJob.class);
+    private Logger logger = LoggerFactory.getLogger(FundPerformanceJob.class);
     @Autowired
-    private FundSnapshotDao fundSnapshotDao;
+    private FundPerformanceDao fundPerformanceDao;
 
 //    @Scheduled(cron = "${webmagic.job.cron}")
 //    @PostConstruct//启动项目则开启
     public void job() {
-
+        System.out.println("===============");
+        System.out.println("===============");
+        System.out.println("===============");
+        System.out.println("===============");
+        System.out.println("===============");
+        System.out.println("===============");
         long startTime, endTime;
         System.out.println("【爬虫开始】");
         startTime = System.currentTimeMillis();
-        logger.info("爬取地址：" + FundSnapshotSpider.BASE_URL);
+        logger.info("爬取地址：" + FundPerformanceSpider.BASE_URL);
         try {
             int allNumber = 361;
-            int beginSize = (int)fundSnapshotDao.count()/25+1;
+            int beginSize = (int)fundPerformanceDao.count()/25+1;
             System.out.println(beginSize);
 //            int beginSize = 361;//
             for(int i =beginSize;i<=allNumber;i++){
-                List<FundSnapshot> fundSnapshots = FundSnapshotSpider.getPageList(i);
+                List<FundPerformance> list = FundPerformanceSpider.getPageList(i);
                 logger.error("第"+i+"页数据保存>>>>>>>>>>>begin");
-                if(fundSnapshots.get(0).getFundName().equals("")){
+                if(list.get(0).getFundName().equals("")){
                     break;
                 }
-                fundSnapshotDao.saveAll(fundSnapshots);
-                logger.error("第"+i+"页数据保存>>>>>>>>>>>end\t,\t数量"+fundSnapshots.size());
+                fundPerformanceDao.saveAll(list);
+                logger.error("第"+i+"页数据保存>>>>>>>>>>>end\t,\t数量"+list.size());
             }
 
         } catch (Exception e) {
