@@ -10,6 +10,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.EnableScheduling;
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
@@ -27,7 +28,7 @@ public class FundPortfolioJob {
     @Autowired
     private FundPortfolioDao fundPortfolioDao;
 
-//    @Scheduled(cron = "${webmagic.job.cron}")
+    @Scheduled(cron = "${webmagic.job.cron}")
 //    @PostConstruct//启动项目则开启
     public void job() {
 

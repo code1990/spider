@@ -10,6 +10,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.EnableScheduling;
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
@@ -43,7 +44,7 @@ public class FundOperationJob {
             for(int i =beginSize;i<=allNumber;i++){
                 List<FundOperation> fundOperation = FundOperationSpider.getPageList(i);
                 logger.error("第"+i+"页数据保存>>>>>>>>>>>begin");
-                if(fundOperation.get(0).getFundName().equals("")){
+                if(fundOperation.get(0).getFundName().equals("") || null ==fundOperation.get(0).getFundName() ){
                     break;
                 }
                 fundOperationDao.saveAll(fundOperation);

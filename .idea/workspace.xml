@@ -2,43 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="96655831-bfbb-4a1e-a89d-4d36a9377f8f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/dao/FundOperationDao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/dao/FundPerformanceDao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/dao/FundPortfolioDao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/entity/FundOperation.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/entity/FundPortfolio.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/spider/FundPerformanceSpider.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/spider/FundPortfolioSpider.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/spider/FundSnapshotSpiderLess.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/task/FundOperationJob.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/task/FundPerformanceJob.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/task/FundPortfolioJob.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/task/FundSnapshotJobLess.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/sql.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/tmp.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/tmp.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/com/SpiderApplicationTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/com/TxtUtil.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/dao/FundSnapshotDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dao/FundSnapshotDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/entity/FundPerformance.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/entity/FundPerformance.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/spider/MorningStarLevelSpider.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/spider/FundOperationSpider.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/spider/MorningStarSpider.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/spider/FundSnapshotSpider.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/task/FundSnapshotJob.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/task/FundSnapshotJob.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/MyTest.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/SpiderApplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/SpiderApplication.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/Test.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/TxtUtil.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/config/JobConfig.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/dao/UserDao.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/entity/FundSnapshot.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/entity/FundSnapshot.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/entity/User.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/spider/MorningStarSpider.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/task/FundSnapshotJob.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/task/FundSnapshotJob.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/spider/FundOperationSpider.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/spider/FundOperationSpider.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/spider/FundPortfolioSpider.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/spider/FundPortfolioSpider.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/task/FundOperationJob.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/task/FundOperationJob.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/task/FundPortfolioJob.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/task/FundPortfolioJob.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/task/FundSnapshotJobLess.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/task/FundSnapshotJobLess.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/sql.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/sql.txt" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -141,7 +111,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.FundPortfolioSpider">
+  <component name="RunManager" selected="JUnit.CodeTest.testInfo">
     <configuration name="FundOperationSpider" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.spider.FundOperationSpider" />
       <module name="spider" />
@@ -168,6 +138,22 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="CodeTest.testInfo" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="spider" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com" />
+      <option name="MAIN_CLASS_NAME" value="com.CodeTest" />
+      <option name="METHOD_NAME" value="testInfo" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="EntityUtil.getList" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="spider" />
       <extension name="coverage">
@@ -179,22 +165,6 @@
       <option name="PACKAGE_NAME" value="com.util" />
       <option name="MAIN_CLASS_NAME" value="com.util.EntityUtil" />
       <option name="METHOD_NAME" value="getList" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="SpiderApplicationTest.testInsert" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="spider" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com" />
-      <option name="MAIN_CLASS_NAME" value="com.SpiderApplicationTest" />
-      <option name="METHOD_NAME" value="testInsert" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -215,11 +185,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.FundPortfolioSpider" />
-        <item itemvalue="Application.FundOperationSpider" />
-        <item itemvalue="JUnit.EntityUtil.getList" />
+        <item itemvalue="JUnit.CodeTest.testInfo" />
         <item itemvalue="Spring Boot.SpiderApplication" />
-        <item itemvalue="JUnit.SpiderApplicationTest.testInsert" />
+        <item itemvalue="Application.FundOperationSpider" />
+        <item itemvalue="Application.FundPortfolioSpider" />
+        <item itemvalue="JUnit.EntityUtil.getList" />
       </list>
     </recent_temporary>
   </component>
@@ -230,12 +200,12 @@
           <expand>
             <path>
               <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
-              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@d5556393" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@2066c2a4" type="7427dc5b:ServiceModel$ServiceGroupNode" />
             </path>
             <path>
               <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
-              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@d5556393" type="7427dc5b:ServiceModel$ServiceGroupNode" />
-              <item name="com.intellij.execution.services.ServiceModel$ServiceNode@7710be9a" type="9fbbdea:ServiceModel$ServiceNode" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@2066c2a4" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceNode@edbab6" type="9fbbdea:ServiceModel$ServiceNode" />
             </path>
           </expand>
           <select />
@@ -258,7 +228,9 @@
       <workItem from="1572575273653" duration="12907000" />
       <workItem from="1572638263726" duration="7631000" />
       <workItem from="1572650459916" duration="21768000" />
-      <workItem from="1572695844412" duration="4188000" />
+      <workItem from="1572695844412" duration="5824000" />
+      <workItem from="1572737797833" duration="7462000" />
+      <workItem from="1572833367430" duration="739000" />
     </task>
     <servers />
   </component>

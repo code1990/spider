@@ -20,3 +20,14 @@ select count(page_size),page_size from t_fund_snapshot group by page_size;
 
 insert into t_fund_snapshot_bak select * from t_fund_snapshot;
 
+set global time_zone='+8:00';
+CREATE TABLE t_fund_operation_bak SELECT * FROM t_fund_operation;
+select count(*) from t_fund_operation;
+select count(*) from t_fund_performance;
+select count(*) from t_fund_performance_bak;
+select count(*) from t_fund_portfolio;
+CREATE TABLE t_fund_portfolio_bak SELECT * FROM t_fund_portfolio;
+select count(*) from t_fund_snapshot;
+select count(*) from t_fund_snapshot_bak
+select count(*) from t_user
+select count(*) from yang_guang_page_content

@@ -39,6 +39,11 @@ public class FundOperationSpider {
         driver.get(BASE_URL);
         //点击翻页
         ((JavascriptExecutor) driver).executeScript("javascript:__doPostBack('ctl00$cphMain$AspNetPager1','" + pageNum + "')");
+        try {
+            Thread.sleep(3000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         //点击购买信息
         ((JavascriptExecutor) driver).executeScript("javascript:__doPostBack('ctl00$cphMain$lbOperations','')");
 

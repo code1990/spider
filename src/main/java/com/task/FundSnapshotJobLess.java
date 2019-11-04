@@ -31,7 +31,7 @@ public class FundSnapshotJobLess {
     private FundSnapshotDao fundSnapshotDao;
 
 //    @Scheduled(cron = "${webmagic.job.cron}")
-    @PostConstruct//启动项目则开启
+//    @PostConstruct//启动项目则开启
     public void job() {
 
         long startTime, endTime;
