@@ -9,7 +9,7 @@ import java.util.Date;
 
 /**
  * @author wei
- * @description 基金快照表 添加columnDefinition 导致JPA自动建表失效
+ * @description 基金购买信息表
  * @date 2019/10/31
  */
 @Data

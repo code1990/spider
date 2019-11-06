@@ -9,8 +9,8 @@ import java.util.Date;
 
 /**
  * @author wei
- * @description 基金业绩和风险表 添加columnDefinition 导致JPA自动建表失效
- * @date 2019/10/31 标准差
+ * @description 基金投资组合表
+ * @date 2019/10/31
  */
 @Data
 @Accessors(chain = true)

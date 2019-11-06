@@ -90,7 +90,7 @@ public class FundSnapshotSpiderLess {
                         break;
                     case 9:
                         if (!info.equals("-")) {
-                            snapshot.setYeaPayPercent(info);
+                            snapshot.setYearPayPercent(info);
                         }
                         break;
                     default:

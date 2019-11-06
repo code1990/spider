@@ -50,7 +50,7 @@ public class FundSnapshot implements Serializable {
     private String valueDayChange;
     /**今年以来回报*/
     @Column(name = "year_pay_percent")
-    private String yeaPayPercent;
+    private String yearPayPercent;
     /**insert时间*/
     @Column(name = "create_time")
     private Date createTime;

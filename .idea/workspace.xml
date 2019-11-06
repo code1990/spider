@@ -2,13 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="96655831-bfbb-4a1e-a89d-4d36a9377f8f" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/entity/FundBase.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/spider/FundBaseSpider.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/fund.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/spider/FundOperationSpider.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/spider/FundOperationSpider.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/spider/FundPortfolioSpider.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/spider/FundPortfolioSpider.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/task/FundOperationJob.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/task/FundOperationJob.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/task/FundPortfolioJob.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/task/FundPortfolioJob.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/task/FundSnapshotJobLess.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/task/FundSnapshotJobLess.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/sql.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/sql.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/demo/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/demo/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/entity/FundOperation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/entity/FundOperation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/entity/FundPerformance.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/entity/FundPerformance.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/entity/FundPortfolio.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/entity/FundPortfolio.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -76,7 +77,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/java/com/util" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/resources" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
@@ -87,16 +88,17 @@
       <recent name="com.spider" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="com.task" />
-      <recent name="com.spider" />
-      <recent name="com.dao" />
       <recent name="com.entity" />
+      <recent name="com.spider" />
+      <recent name="com" />
+      <recent name="com.task" />
+      <recent name="com.dao" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\github\java1234\spider\src\main\resources" />
       <recent name="D:\github\java1234\spider\src\main\java\com\util" />
       <recent name="D:\github\java1234\spider\src\test\java\com" />
       <recent name="D:\github\java1234\spider\src" />
-      <recent name="D:\github\java1234\spider\src\main\resources" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -111,9 +113,9 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.CodeTest.testInfo">
-    <configuration name="FundOperationSpider" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.spider.FundOperationSpider" />
+  <component name="RunManager" selected="Application.FundBaseSpider">
+    <configuration name="FundBaseSpider" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.spider.FundBaseSpider" />
       <module name="spider" />
       <extension name="coverage">
         <pattern>
@@ -125,20 +127,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="FundPortfolioSpider" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.spider.FundPortfolioSpider" />
-      <module name="spider" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.spider.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="CodeTest.testInfo" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="CodeTest.getInfo" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="spider" />
       <extension name="coverage">
         <pattern>
@@ -148,29 +137,45 @@
       </extension>
       <option name="PACKAGE_NAME" value="com" />
       <option name="MAIN_CLASS_NAME" value="com.CodeTest" />
-      <option name="METHOD_NAME" value="testInfo" />
+      <option name="METHOD_NAME" value="getInfo" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="EntityUtil.getList" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="CodeTest.getUser" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="spider" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.util.*" />
+          <option name="PATTERN" value="com.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="com.util" />
-      <option name="MAIN_CLASS_NAME" value="com.util.EntityUtil" />
-      <option name="METHOD_NAME" value="getList" />
+      <option name="PACKAGE_NAME" value="com" />
+      <option name="MAIN_CLASS_NAME" value="com.CodeTest" />
+      <option name="METHOD_NAME" value="getUser" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="SpiderApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
+    <configuration name="CodeTest.testException" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="spider" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com" />
+      <option name="MAIN_CLASS_NAME" value="com.CodeTest" />
+      <option name="METHOD_NAME" value="testException" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="FundBaseSpider.testInfo" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="spider" />
       <extension name="coverage">
         <pattern>
@@ -178,18 +183,21 @@
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="SPRING_BOOT_MAIN_CLASS" value="com.SpiderApplication" />
+      <option name="PACKAGE_NAME" value="com.spider" />
+      <option name="MAIN_CLASS_NAME" value="com.spider.FundBaseSpider" />
+      <option name="METHOD_NAME" value="testInfo" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.CodeTest.testInfo" />
-        <item itemvalue="Spring Boot.SpiderApplication" />
-        <item itemvalue="Application.FundOperationSpider" />
-        <item itemvalue="Application.FundPortfolioSpider" />
-        <item itemvalue="JUnit.EntityUtil.getList" />
+        <item itemvalue="Application.FundBaseSpider" />
+        <item itemvalue="JUnit.FundBaseSpider.testInfo" />
+        <item itemvalue="JUnit.CodeTest.testException" />
+        <item itemvalue="JUnit.CodeTest.getInfo" />
+        <item itemvalue="JUnit.CodeTest.getUser" />
       </list>
     </recent_temporary>
   </component>
@@ -201,11 +209,6 @@
             <path>
               <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
               <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@2066c2a4" type="7427dc5b:ServiceModel$ServiceGroupNode" />
-            </path>
-            <path>
-              <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
-              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@2066c2a4" type="7427dc5b:ServiceModel$ServiceGroupNode" />
-              <item name="com.intellij.execution.services.ServiceModel$ServiceNode@edbab6" type="9fbbdea:ServiceModel$ServiceNode" />
             </path>
           </expand>
           <select />
@@ -230,7 +233,9 @@
       <workItem from="1572650459916" duration="21768000" />
       <workItem from="1572695844412" duration="5824000" />
       <workItem from="1572737797833" duration="7462000" />
-      <workItem from="1572833367430" duration="739000" />
+      <workItem from="1572833367430" duration="7018000" />
+      <workItem from="1573000265663" duration="4412000" />
+      <workItem from="1573030665156" duration="6776000" />
     </task>
     <servers />
   </component>
