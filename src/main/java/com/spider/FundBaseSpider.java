@@ -71,21 +71,57 @@ public class FundBaseSpider {
         String applyStatus=array[14];
         String ransomStatus=array[16];
         String investStyle=array[18];
-        System.out.println(investStyle);
         String allValue=array[20];
         String investMin=array[22];
         String salePlace=array[24];
         String preCost=array[26];
         String backCost=array[28];
         //=====================================================
+        element = driver.findElement(By.id("qt_per"));
+        String yearPayPercent = element.getText().split("\n")[9];
+        String basePayPercent= element.getText().split("\n")[18];
+        String commonPayPercent= element.getText().split("\n")[27];
+        //=====================================================
+        element = driver.findElement(By.id("qt_return1"));
+        String pay1month = element.getText().split("\n")[5];
+        String pay3month = element.getText().split("\n")[10];
+        String pay6month = element.getText().split("\n")[15];
+        String pay1year = element.getText().split("\n")[20];
+        String pay2year = element.getText().split("\n")[25];
+        String pay3year = element.getText().split("\n")[30];
+        String pay5year = element.getText().split("\n")[35];
+        String pay10year = element.getText().split("\n")[40];
+        //==================================================
+        String lever3="0";
+        String lever5="0";
+        //=====================================================
+        element = driver.findElement(By.id("qt_risk"));
+        String avg3=element.getText().split("\n")[7];
+        String std3=element.getText().split("\n")[14];
+        String risk3=element.getText().split("\n")[21];
+        String sharp=element.getText().split("\n")[28];
+        //====================================================
+        element = driver.findElement(By.id("qt_riskstats"));
+        String baseA1=element.getText().split("\n")[3];
+        String commonA1=element.getText().split("\n")[4];
+        String baseB1=element.getText().split("\n")[6];
+        String commonB1=element.getText().split("\n")[7];
+        String baseSqrt=element.getText().split("\n")[9];
+        String commonSqrt=element.getText().split("\n")[10];
+        //======================================================
+        element = driver.findElement(By.id("qt_stylel"));
+        String fundStyle = element.getText().split("\n")[0].split("：")[1];
+        String fundScope = element.getText().split("\n")[1].split("：")[1];
+        //===============================================
 
+        System.out.println(element.getText());
 //        System.out.println(qrGrid.getText());
 //        String str = qrGrid.getText();
 //        System.out.println(str.split("\n").length);
-        System.out.println(driver.findElement(By.id("qt_quarter")).getText());
-        System.out.println(driver.findElement(By.id("qt_dividend")).getText());
-        driver.findElement(By.id("qt_splittab")).click();
-        System.out.println(driver.findElement(By.id("qt_split")).getText());
+//        System.out.println(driver.findElement(By.id("qt_quarter")).getText());
+//        System.out.println(driver.findElement(By.id("qt_dividend")).getText());
+//        driver.findElement(By.id("qt_splittab")).click();
+//        System.out.println(driver.findElement(By.id("qt_split")).getText());
 
 //        List<WebElement> tr = qrGrid.findElements(By.tagName("tr"));
 ////        logger.error("第"+pageNum+"页爬取>>>>>>>>>>>begin");
@@ -149,7 +185,7 @@ public class FundBaseSpider {
 //        }
         //截图
 //        SpiderUtil.cutScreen(driver,pageNum);
-//        driver.quit();
+        driver.quit();
 //        logger.error("第"+pageNum+"页爬取>>>>>>>>>>>end\t,\t数量"+list.size());
 //        return list;
     }

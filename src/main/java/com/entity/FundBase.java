@@ -83,10 +83,84 @@ public class FundBase implements Serializable {
     /**今年以来回报*/
     @Column(name = "year_pay_percent")
     private String yearPayPercent;
-    /*基准指数*/
+    /**基准指数*/
     @Column(name = "base_pay_percent")
     private String basePayPercent;
+    /**同类平均指数*/
+    @Column(name = "common_pay_percent")
+    private String commonPayPercent;
     //=========================================
+    /**1个月回报(%)*/
+    @Column(name = "pay_1_month")
+    private String pay1month;
+    /**3个月回报(%)*/
+    @Column(name = "pay_3_month")
+    private String pay3month;
+    /**6个月回报(%)*/
+    @Column(name = "pay_6_month")
+    private String pay6month;
+    /**1年回报(%)*/
+    @Column(name = "pay_1_year")
+    private String pay1year;
+    /**2年年化回报(%)*/
+    @Column(name = "pay_2_year")
+    private String pay2year;
+    /**3年年化回报(%)*/
+    @Column(name = "pay_3_year")
+    private String pay3year;
+    /**5年年化回报(%)*/
+    @Column(name = "pay_5_year")
+    private String pay5year;
+    /**10年年化回报(%)*/
+    @Column(name = "pay_10_year")
+    private String pay10year;
+    //=========================================
+    /**三年评级*/
+    @Column(name = "lever3")
+    private String lever3;
+    /**5年评级*/
+    @Column(name = "lever5")
+    private String lever5;
+    //========================================
+    /**标准差*/
+    @Column(name = "avg3")
+    private String avg3;
+    /**标准差*/
+    @Column(name = "std3")
+    private String std3;
+    /**晨星风险系数*/
+    @Column(name = "risk3")
+    private String risk3;
+    /**夏普比率*/
+    @Column(name = "sharp")
+    private String sharp;
+    //=================================
+    /**基准指数-阿尔法系数*/
+    @Column(name = "base_a1")
+    private String baseA1;
+    /**基准指数-贝塔系数*/
+    @Column(name = "baseB1")
+    private String baseB1;
+    /**基准指数-R平方*/
+    @Column(name = "baseSqrt")
+    private String sqrt;
+    /**同类平均-阿尔法系数*/
+    @Column(name = "common_a1")
+    private String commonA1;
+    /**同类平均-贝塔系数*/
+    @Column(name = "common_b1")
+    private String commonB1;
+    /**同类平均-R平方*/
+    @Column(name = "common_sqrt")
+    private String commonSqrt;
+    //===========================
+    /**风格*/
+    @Column(name = "fund_style")
+    private String fundStyle;
+    /**规模*/
+    @Column(name = "fund_scope")
+    private String fundScope;
+    //=======================
     /**insert时间*/
     @Column(name = "create_time")
     private Date createTime;

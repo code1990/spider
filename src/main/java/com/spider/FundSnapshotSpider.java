@@ -112,7 +112,7 @@ public class FundSnapshotSpider {
                         break;
                     case 10:
                         if(!info.equals("-")){
-                            snapshot.setYeaPayPercent(info);
+                            snapshot.setYearPayPercent(info);
                         }
                         break;
                     default:
