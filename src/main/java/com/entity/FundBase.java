@@ -139,11 +139,11 @@ public class FundBase implements Serializable {
     @Column(name = "base_a1")
     private String baseA1;
     /**基准指数-贝塔系数*/
-    @Column(name = "baseB1")
+    @Column(name = "base_b1")
     private String baseB1;
     /**基准指数-R平方*/
-    @Column(name = "baseSqrt")
-    private String sqrt;
+    @Column(name = "base_sqrt")
+    private String baseSqrt;
     /**同类平均-阿尔法系数*/
     @Column(name = "common_a1")
     private String commonA1;
@@ -161,6 +161,31 @@ public class FundBase implements Serializable {
     @Column(name = "fund_scope")
     private String fundScope;
     //=======================
+    /**﻿现金*/
+    @Column(name = "money_percent")
+    private String moneyPercent;
+    /**股票*/
+    @Column(name = "stock_percent")
+    private String stockPercent;
+    /**债券*/
+    @Column(name = "bond_percent")
+    private String bondPercent;
+    /**其他*/
+    @Column(name = "other_percent")
+    private String otherPercent;
+    /**行业分布*/
+    @Column(name = "all_percent")
+    private String allPercent;
+    /**股票持仓*/
+    @Column(name = "all_stock")
+    private String allStock;
+    /**分红信息*/
+    @Column(name = "div_info")
+    private String divInfo;
+    /**拆分信息*/
+    @Column(name = "split_info")
+    private String splitInfo;
+    //============================================
     /**insert时间*/
     @Column(name = "create_time")
     private Date createTime;
