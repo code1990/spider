@@ -2,7 +2,6 @@ package com.spider;
 
 import com.SpiderApplication;
 import com.entity.FundOperation;
-import com.entity.FundPerformance;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;

@@ -2,19 +2,20 @@ package com.spider;
 
 import com.SpiderApplication;
 import com.entity.FundPerformance;
-//import org.apache.tomcat.util.http.fileupload.FileUtils;
-import org.openqa.selenium.*;
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-//import java.awt.Rectangle;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
+
+//import org.apache.tomcat.util.http.fileupload.FileUtils;
+//import java.awt.Rectangle;
 
 /**
  * @author wei

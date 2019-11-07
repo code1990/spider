@@ -1,16 +1,12 @@
 package com.task;
 
 import com.dao.FundOperationDao;
-import com.dao.FundSnapshotDao;
 import com.entity.FundOperation;
-import com.entity.FundSnapshot;
 import com.spider.FundOperationSpider;
-import com.spider.FundSnapshotSpider;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.EnableScheduling;
-import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 
 import java.util.List;

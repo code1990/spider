@@ -1,11 +1,8 @@
 package com.task;
 
 import com.dao.FundPortfolioDao;
-import com.dao.FundSnapshotDao;
 import com.entity.FundPortfolio;
-import com.entity.FundSnapshot;
 import com.spider.FundPortfolioSpider;
-import com.spider.FundSnapshotSpider;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
