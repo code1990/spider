@@ -232,13 +232,5 @@ public class FundBaseSpider {
 //        System.out.println(Arrays.toString(.toArray()));
     }
 
-    @Test
-    public void testInfo(){
-//        System.out.println(PATH);
-        List<String> list = TxtUtil.readTxt(PATH);
-        System.out.println(list.size());
-
-        System.out.println("1\n2\n".split("\r\n").length);
-    }
 }
 
