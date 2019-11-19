@@ -2,8 +2,6 @@ package com.spider;
 
 import com.SpiderApplication;
 import com.entity.FundBase;
-import com.util.TxtUtil;
-import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -40,7 +38,7 @@ public class FundBaseSpider {
         return dateFormat.format(calendar.getTime());
     }
 
-    public static void getPageList(String num,String fundUrl){
+    public static FundBase getPageList(String num, String fundUrl){
         WebDriver driver = new ChromeDriver();
         //设置浏览器尺寸
         driver.get(fundUrl);
@@ -224,6 +222,7 @@ public class FundBaseSpider {
         driver.quit();
 //        logger.error("第"+pageNum+"页爬取>>>>>>>>>>>end\t,\t数量"+list.size());
 //        return list;
+        return fundBase;
     }
 
     public static void main(String[] args) throws InterruptedException {

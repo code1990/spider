@@ -2,6 +2,8 @@ package com.spider;
 
 import com.SpiderApplication;
 import com.entity.FundBase;
+import com.util.TxtUtil;
+import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -22,7 +24,7 @@ import java.util.List;
  */
 public class MeiniguiSpider {
 
-    String PATH=SpiderApplication.class.getClassLoader().getResource("fund.txt").getPath();
+    String BIGDATA_PATH=SpiderApplication.class.getClassLoader().getResource("bigdata.txt").getPath();
 
     private static Logger logger = LoggerFactory.getLogger(MeiniguiSpider.class);
     static {
@@ -57,13 +59,13 @@ public class MeiniguiSpider {
         driver.findElement(By.id("kw")).sendKeys(fundUrl);
         driver.findElement(By.className("banner_button")).click();
         try {
-            Thread.sleep(3000);
+            Thread.sleep(2000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
         String str = driver.findElement(By.className("layui-layer-content")).getText();
         System.out.println(str);
-
+        driver.quit();
     }
 
     public static void main(String[] args) throws InterruptedException {
@@ -71,5 +73,16 @@ public class MeiniguiSpider {
         getPageList("1",fundUrl);
     }
 
+    @Test
+    public void getBigData(){
+        String core = "推荐";
+        for(String str: TxtUtil.readTxt(BIGDATA_PATH)){
+            if(str.toLowerCase().contains(core.toLowerCase())){
+                System.out.println(str.split("\t")[1]);
+                String url = str.split("\t")[2];
+                getPageList("1",url);
+            }
+        }
+    }
 }
 
