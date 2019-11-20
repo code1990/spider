@@ -40,6 +40,38 @@ public class SpiderUtil {
         driver.get(url);
         return driver;
     }
-
+//
+//    public ChromeOptions hideBrowser(){
+//        //设置浏览器可选项
+//        ChromeOptions options = getDefaultBrowser();
+//        //隐藏浏览器
+//        options.addArguments("--headless");
+//        return options;
+//    }
+//
+//    public ChromeOptions getDefaultBrowser(){
+//        //设置浏览器可选项
+//        ChromeOptions options = new ChromeOptions();
+//        //单进程运行Google Chrome
+//        options.addArguments("–single-process");
+//        //禁止加载图片
+//        options.addArguments("–disable-images");
+//        return options;
+//    }
+    public static WebDriver getChromeDriver(String url,boolean show){
+        //设置浏览器可选项
+        ChromeOptions options = new ChromeOptions();
+        if(!show){
+            //隐藏浏览器
+            options.addArguments("--headless");
+        }
+        //单进程运行Google Chrome
+        options.addArguments("–single-process");
+        //禁止加载图片
+        options.addArguments("–disable-images");
+        WebDriver driver = new ChromeDriver(options);
+        driver.get(url);
+        return driver;
+    }
 }
 
