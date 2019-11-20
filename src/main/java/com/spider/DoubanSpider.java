@@ -48,27 +48,24 @@ public class DoubanSpider {
     }
     @Test
     public void testInfo123(){
-        String str = "C:\\Users\\Administrator\\Desktop\\ebook\\douban\\temp.txt";
+        String str = "C:\\Users\\admin\\Desktop\\temp.txt";
         for(String s:TxtUtil.readTxt(str)){
             String[] array = s.split("\t");
             String comment =array[2];
             if(comment.startsWith("(")){
                 comment = 0+comment;
             }
-            comment = comment.replace("(","\t").replace(")","");
-            System.out.println(comment);
-            System.out.println(array.length);
+            comment = comment.replace("(","\t");
+            comment = comment.replace(")","");
+            comment = comment.replace("人评价","");
+            comment = comment.replace("目前无","0");
+            comment = comment.replace("评价人数不足","0");
+            String press="";
+            if(array.length==4){
+                press=array[3];
+            }
+            System.out.println(array[0]+"\t"+array[1]+"\t"+comment+"\t"+press);
         }
-        String sss = "6.3(13人评价)";
-        String sss2 = "(评价人数不足)";
-
-        if(sss2.startsWith("(")){
-            System.out.println(0+sss2.replace("(","\t").replace(")",""));
-        }else{
-            System.out.println(sss.replace("(","\t").replace(")",""));
-        }
-
-
     }
 }
 
