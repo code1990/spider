@@ -1,6 +1,7 @@
 package com.spider;
 
 import com.google.gson.JsonObject;
+import com.util.HttpClientUtil;
 import com.util.TxtUtil;
 import org.junit.Before;
 import org.junit.Test;
@@ -21,7 +22,9 @@ import java.util.Map;
  */
 public class Eastmoneyjjjz {
     private static final String MAIN_URL = "http://fundf10.eastmoney.com/jjjz_";
-    String path = "C:\\Users\\Administrator\\Desktop\\fundcodename.txt";
+//    String path = "C:\\Users\\Administrator\\Desktop\\fundcodename.txt";
+    String path = "C:\\Users\\admin\\Desktop\\fundcodename.txt";
+//    List<String> list = TxtUtil.readTxt(path);
     List<String> list = TxtUtil.readTxt(path);
     @Test
     public void getInfo(){
@@ -61,10 +64,23 @@ public class Eastmoneyjjjz {
     }
     @Test
     public void testClick(){
-        WebDriver driver = SpiderUtil.getChromeDriver("http://fundf10.eastmoney.com/jjjz_004851.html",false);
-        String str = driver.findElement(By.className("pagebtns")).findElements(By.tagName("label")).get(7).getText();
+        String url = "http://fund.eastmoney.com/f10/F10DataApi.aspx?type=lsjz&code=110022&sdate=2018-01-01&edate=2018-01-31&per=31";
+        WebDriver driver = SpiderUtil.getChromeDriver(url,false);
+        String str = driver.findElement(By.tagName("tbody")).getText();
 
         System.out.println(str);
+    }
+
+    @Test
+    public void testAPi(){
+        long times = System.currentTimeMillis();
+        String fundCode = "004851";
+        int pageIndex = 1;
+        int maxSize = 31;
+        String url = "http://fund.eastmoney.com/f10/F10DataApi.aspx?type=lsjz&code=110022&sdate=2018-01-01&edate=2018-01-31&per=31";
+        String resultJson = HttpClientUtil.get(url);
+        System.out.println(resultJson);
+
     }
 }
 

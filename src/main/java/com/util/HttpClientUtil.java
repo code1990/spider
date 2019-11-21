@@ -1,202 +1,216 @@
 package com.util;
 
 import org.apache.http.Consts;
+import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
 import org.apache.http.NameValuePair;
+import org.apache.http.client.ClientProtocolException;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.entity.UrlEncodedFormEntity;
+import org.apache.http.client.methods.CloseableHttpResponse;
+import org.apache.http.client.methods.HttpGet;
 import org.apache.http.client.methods.HttpPost;
+import org.apache.http.client.utils.URIBuilder;
+import org.apache.http.entity.ByteArrayEntity;
+import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.DefaultHttpClient;
+import org.apache.http.impl.client.HttpClients;
 import org.apache.http.message.BasicNameValuePair;
+import org.apache.http.util.CharArrayBuffer;
 import org.apache.http.util.EntityUtils;
 
 import java.io.*;
+import java.net.URISyntaxException;
 import java.net.URL;
 import java.net.URLConnection;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-
 /**
  * @author Administrator
  */
 public class HttpClientUtil {
 
-
-    /*   //发送 POST 请求
-       String sr=httpServerTest.sendPost("http://10.92.130.191:9109/", "get/xxx");
-       System.out.println(sr);*/
-    //获取令牌
-    public static String sendGet(String url, String authorization, String host) throws Exception {
-        BufferedReader in = null;
-        StringBuilder result = new StringBuilder();
-        try {
-            URL realUrl = new URL(url);
-            URLConnection conn = getUrlConnection(url,authorization,host);
-            // 建立实际的连接
-            conn.connect();
-            // 定义 BufferedReader输入流来读取URL的响应
-            in = new BufferedReader(new InputStreamReader(
-                    conn.getInputStream()));
-            String line;
-            while ((line = in.readLine()) != null) {
-                result.append(line);
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-            throw e;
-        }  finally {
-            try {
-                if (in != null) {
-                    in.close();
-                }
-            } catch (Exception e2) {
-                e2.printStackTrace();
-            }
-        }
-        return result.toString();
-    }
-
-
     /**
-     * 将参数拼接到url之后
+     * get请求，参数拼接在地址上
      *
-     * @return
+     * @param url 请求地址加参数
+     * @return 响应
      */
-    public static String buildUrlByParam(String url, Map<String, String> params) throws IOException {
-
-        if (params != null && params.size() > 0) {
-            List<NameValuePair> parameters = new ArrayList<NameValuePair>();
-            for (Map.Entry<String, String> entry : params.entrySet()) {
-                parameters.add(new BasicNameValuePair(entry.getKey(), entry.getValue()));
-            }
-            String paramsStr = EntityUtils.toString(new UrlEncodedFormEntity(parameters, Consts.UTF_8));
-            url += "?" + paramsStr;
-        }
-
-        return url;
-
-    }
-
-    /**
-     * 发送http post 请求: 表单模式
-     *
-     * @param url
-     * @param header
-     * @param params
-     * @return
-     * @throws Exception
-     */
-    public static String doPost(String url, Map<String, String> header, Map<String, String> params) throws Exception {
-
-        HttpClient httpClient = new DefaultHttpClient();
-
-        //设置请求头信息
-        HttpPost httpost = new HttpPost(url);
-
-        for (Map.Entry<String, String> entry : header.entrySet()) {
-            httpost.addHeader(entry.getKey(), entry.getValue());
-
-        }
-
+    public static String get(String url) {
+        String result = null;
+        CloseableHttpClient httpClient = HttpClients.createDefault();
+        HttpGet get = new HttpGet(url);
+        CloseableHttpResponse response = null;
         try {
-
-            if (params != null && params.size() > 0) {
-                List<NameValuePair> parameters = new ArrayList<NameValuePair>(0);
-                for (Map.Entry<String, String> entry : params.entrySet()) {
-                    parameters.add(new BasicNameValuePair(entry.getKey(), entry.getValue()));
-                }
-                UrlEncodedFormEntity formEntity = new UrlEncodedFormEntity(parameters);
-                httpost.setEntity(formEntity);
+            response = httpClient.execute(get);
+            if (response != null && response.getStatusLine().getStatusCode() == 200) {
+                HttpEntity entity = response.getEntity();
+                result = entityToString(entity);
             }
-
-            HttpResponse response = httpClient.execute(httpost);
-            return getJsonStrFromHttpResponse(response);
-
-        } catch (Exception e) {
+            return result;
+        } catch (IOException e) {
             e.printStackTrace();
-            throw e;
         } finally {
-            httpost.releaseConnection();
-            httpost.abort();
+            try {
+                httpClient.close();
+                if (response != null) {
+                    response.close();
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
-
+        return null;
     }
 
     /**
-     * 将httpResponse解析成json字符串
+     * get请求，参数放在map里
      *
-     * @param response
-     * @return
+     * @param url 请求地址
+     * @param map 参数map
+     * @return 响应
      */
-    public static String getJsonStrFromHttpResponse(HttpResponse response) throws Exception {
-
-        InputStream in = response.getEntity().getContent();
-
-        StringBuilder resultJson = new StringBuilder();
-        byte[] buf = new byte[1024];
-        int len = 0;
-        while ((len = in.read(buf)) != -1) {
-            resultJson.append(new String(buf, 0, len));
+    public String getMap(String url, Map<String, String> map) {
+        String result = null;
+        CloseableHttpClient httpClient = HttpClients.createDefault();
+        List<NameValuePair> pairs = new ArrayList<NameValuePair>();
+        for (Map.Entry<String, String> entry : map.entrySet()) {
+            pairs.add(new BasicNameValuePair(entry.getKey(), entry.getValue()));
         }
-        return resultJson.toString();
-
-    }
-
-    public static String sendPost(String url, String authorization, String host, String transStartJson) throws Exception {
-        PrintWriter out = null;
-        BufferedReader in = null;
-        StringBuilder result = new StringBuilder();
+        CloseableHttpResponse response = null;
         try {
-            URLConnection conn =  getUrlConnection(url,authorization,host);
-            // 发送POST请求必须设置如下两行
-            conn.setDoOutput(true);
-            conn.setDoInput(true);
-            // 获取URLConnection对象对应的输出流
-            out = new PrintWriter(conn.getOutputStream());
-            // 发送请求参数
-            out.print(transStartJson);
-            System.out.print("transStartJson:" + transStartJson);
-            // flush输出流的缓冲
-            out.flush();
-            // 定义BufferedReader输入流来读取URL的响应
-            in = new BufferedReader(
-                    new InputStreamReader(conn.getInputStream()));
-            String line;
-            while ((line = in.readLine()) != null) {
-                result.append(line);
+            URIBuilder builder = new URIBuilder(url);
+            builder.setParameters(pairs);
+            HttpGet get = new HttpGet(builder.build());
+            response = httpClient.execute(get);
+            if (response != null && response.getStatusLine().getStatusCode() == 200) {
+                HttpEntity entity = response.getEntity();
+                result = entityToString(entity);
             }
-        } catch (Exception e) {
-            System.out.println("发送 POST 请求出现异常！" + e);
+            return result;
+        } catch (URISyntaxException e) {
             e.printStackTrace();
-            throw e;
-        }
-        //使用finally块来关闭输出流、输入流
-        finally {
+        } catch (ClientProtocolException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } finally {
             try {
-                if (out != null) {
-                    out.close();
+                httpClient.close();
+                if (response != null) {
+                    response.close();
                 }
-                if (in != null) {
-                    in.close();
-                }
-            } catch (IOException ex) {
-                ex.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
             }
         }
-        return result.toString();
+
+        return null;
     }
 
-    private static URLConnection getUrlConnection(String url, String authorization, String host) throws IOException {
-		URL realUrl = new URL(url);
-		URLConnection conn = realUrl.openConnection();
-		// 设置通用的请求属性
-		conn.setRequestProperty("Authorization", authorization);
-		conn.setRequestProperty("Host", host);
-		conn.setRequestProperty("Accept", "*/*");
-		conn.setRequestProperty("Content-Type", "application/json");
-		return conn;
-	}
+    /**
+     * 发送post请求，参数用map接收
+     *
+     * @param url 地址
+     * @param map 参数
+     * @return 返回值
+     */
+    public String postMap(String url, Map<String, String> map) {
+        String result = null;
+        CloseableHttpClient httpClient = HttpClients.createDefault();
+        HttpPost post = new HttpPost(url);
+        List<NameValuePair> pairs = new ArrayList<NameValuePair>();
+        for (Map.Entry<String, String> entry : map.entrySet()) {
+            pairs.add(new BasicNameValuePair(entry.getKey(), entry.getValue()));
+        }
+        CloseableHttpResponse response = null;
+        try {
+            post.setEntity(new UrlEncodedFormEntity(pairs, "UTF-8"));
+            response = httpClient.execute(post);
+            if (response != null && response.getStatusLine().getStatusCode() == 200) {
+                HttpEntity entity = response.getEntity();
+                result = entityToString(entity);
+            }
+            return result;
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        } catch (ClientProtocolException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                httpClient.close();
+                if (response != null) {
+                    response.close();
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+        }
+        return null;
+    }
+
+    /**
+     * post请求，参数为json字符串
+     *
+     * @param url        请求地址
+     * @param jsonString json字符串
+     * @return 响应
+     */
+    public String postJson(String url, String jsonString) {
+        String result = null;
+        CloseableHttpClient httpClient = HttpClients.createDefault();
+        HttpPost post = new HttpPost(url);
+        CloseableHttpResponse response = null;
+        try {
+            post.setEntity(new ByteArrayEntity(jsonString.getBytes("UTF-8")));
+            response = httpClient.execute(post);
+            if (response != null && response.getStatusLine().getStatusCode() == 200) {
+                HttpEntity entity = response.getEntity();
+                result = entityToString(entity);
+            }
+            return result;
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        } catch (ClientProtocolException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                httpClient.close();
+                if (response != null) {
+                    response.close();
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+        return null;
+    }
+
+    private static String entityToString(HttpEntity entity) throws IOException {
+        String result = null;
+        if (entity != null) {
+            long lenth = entity.getContentLength();
+            if (lenth != -1 && lenth < 2048) {
+                result = EntityUtils.toString(entity, "UTF-8");
+            } else {
+                InputStreamReader reader1 = new InputStreamReader(entity.getContent(), "UTF-8");
+                CharArrayBuffer buffer = new CharArrayBuffer(2048);
+                char[] tmp = new char[1024];
+                int l;
+                while ((l = reader1.read(tmp)) != -1) {
+                    buffer.append(tmp, 0, l);
+                }
+                result = buffer.toString();
+            }
+        }
+        return result;
+    }
 
 }
