@@ -18,10 +18,11 @@ import java.util.List;
 public class JavaxxzSearch extends SpiderUtil {
 
     private static final String MAIN_URL = "http://www.javaxxz.com/search.php";
+    private String userName = System.getProperty("os.name");
     @Test
     public void getSpark() throws Exception{
-        String kw = "go";
-        String path = "C:\\Users\\Administrator\\Desktop\\ebook\\";
+        String kw = "仓";
+        String path = "C:\\Users\\admin\\Desktop\\ebook\\";
         WebDriver driver = SpiderUtil.getChromeDriver(MAIN_URL);
         WebElement element = driver.findElement(By.id("scform_srchtxt"));
         element.sendKeys(kw);
@@ -38,7 +39,7 @@ public class JavaxxzSearch extends SpiderUtil {
                 String url = getReadUrl(href);
                 urlList.add(url);
                 System.out.println(str +"\t"+url+"\t");
-                sb.append(str +"\t"+url+"\n");
+                sb.append(str +"\n"+url+"\n");
             }
 
         }

@@ -9,6 +9,7 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.remote.CapabilityType;
 import org.springframework.boot.logging.LogLevel;
 
+import java.io.IOException;
 import java.util.logging.Level;
 
 /**
@@ -72,6 +73,17 @@ public class SpiderUtil {
         WebDriver driver = new ChromeDriver(options);
         driver.get(url);
         return driver;
+    }
+
+    public static void chromeQuit(WebDriver driver){
+        driver.quit();
+        try {
+            Runtime.getRuntime().exec("taskkill /F /im " + "chromedriver.exe");
+            Runtime.getRuntime().exec("taskkill /F /im " + "chrome.exe");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+              //异常退出杀死chromedriver和chrome浏览器！
     }
 }
 
