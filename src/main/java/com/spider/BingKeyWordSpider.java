@@ -71,7 +71,7 @@ public class BingKeyWordSpider {
             split = keyword.split("%3A")[1];
         }
         /*System.out.println(split);*/
-        WebDriver driver = SpiderUtil.getChromeDriver(url,true);
+        WebDriver driver = SpiderUtil.getChromeDriver(url,false);
         /*WebElement element = null;
         element = driver.findElement(By.id("est_en"));
         element.click();
@@ -114,7 +114,7 @@ public class BingKeyWordSpider {
                     from = from + (j - 2);
                 }
                 String url = Main_url + "?q=" + keyword + "&go=%e6%8f%90%e4%ba%a4&qs=ds&ensearch=1&first=" + searchNum + "&FORM=" + from;
-                map.put(url, i + "_" + keyword + "_" + j);
+                map.put(url, (i+1) + "_" + keyword + "_" + j);
             }
         }
         return map;
