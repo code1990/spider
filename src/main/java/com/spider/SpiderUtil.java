@@ -1,6 +1,7 @@
 package com.spider;
 
 import com.SpiderApplication;
+import org.junit.Test;
 import org.openqa.selenium.UnexpectedAlertBehaviour;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -19,7 +20,6 @@ import java.util.logging.Level;
  */
 public class SpiderUtil {
 
-
     static {
         String driverClassPath = SpiderApplication.class.getClassLoader().getResource("chromedriver.exe").getPath();
         System.setProperty("webdriver.chrome.driver", driverClassPath);
@@ -28,7 +28,7 @@ public class SpiderUtil {
         java.util.logging.Logger.getLogger("org.openqa.selenium").setLevel(Level.OFF);
     }
 
-    public static WebDriver getChromeDriver(String url){
+    public static WebDriver getChromeDriver(String url) {
         //设置浏览器可选项
         ChromeOptions options = new ChromeOptions();
         //隐藏浏览器
@@ -41,7 +41,8 @@ public class SpiderUtil {
         driver.get(url);
         return driver;
     }
-//
+
+    //
 //    public ChromeOptions hideBrowser(){
 //        //设置浏览器可选项
 //        ChromeOptions options = getDefaultBrowser();
@@ -50,19 +51,20 @@ public class SpiderUtil {
 //        return options;
 //    }
 //
-//    public ChromeOptions getDefaultBrowser(){
-//        //设置浏览器可选项
-//        ChromeOptions options = new ChromeOptions();
-//        //单进程运行Google Chrome
-//        options.addArguments("–single-process");
-//        //禁止加载图片
-//        options.addArguments("–disable-images");
-//        return options;
-//    }
-    public static WebDriver getChromeDriver(String url,boolean show){
+    public static ChromeOptions getDefaultBrowser() {
         //设置浏览器可选项
         ChromeOptions options = new ChromeOptions();
-        if(!show){
+        //单进程运行Google Chrome
+        options.addArguments("–single-process");
+        //禁止加载图片
+        options.addArguments("–disable-images");
+        return options;
+    }
+
+    public static WebDriver getChromeDriver(String url, boolean show) {
+        //设置浏览器可选项
+        ChromeOptions options = new ChromeOptions();
+        if (!show) {
             //隐藏浏览器
             options.addArguments("--headless");
         }
@@ -75,7 +77,7 @@ public class SpiderUtil {
         return driver;
     }
 
-    public static void chromeQuit(WebDriver driver){
+    public static void chromeQuit(WebDriver driver) {
         driver.quit();
         try {
             Runtime.getRuntime().exec("taskkill /F /im " + "chromedriver.exe");
@@ -83,7 +85,14 @@ public class SpiderUtil {
         } catch (IOException e) {
             e.printStackTrace();
         }
-              //异常退出杀死chromedriver和chrome浏览器！
+        //异常退出杀死chromedriver和chrome浏览器！
+    }
+
+    @Test
+    public void testInfo123() {
+        String url = "https://www.baidu.com/";
+        WebDriver driver = getChromeDriver(url, false);
+        chromeQuit(driver);
     }
 }
 
