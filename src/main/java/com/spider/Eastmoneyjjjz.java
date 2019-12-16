@@ -25,7 +25,7 @@ public class Eastmoneyjjjz {
 //    String path = "C:\\Users\\Administrator\\Desktop\\fundcodename.txt";
     String path = "C:\\Users\\admin\\Desktop\\fundcodename.txt";
 //    List<String> list = TxtUtil.readTxt(path);
-    List<String> list = TxtUtil.readTxt(path);
+    List<String> list = new ArrayList<>();//TxtUtil.readTxt(path);
     @Test
     public void getInfo(){
         for (int i = 0; i < 1; i++) {

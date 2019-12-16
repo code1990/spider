@@ -75,7 +75,13 @@ public class Top50Fund {
                 }
 
             }
-            pagebar.findElements(By.tagName("label")).get(i+1).click();
+            int length = pagebar.findElements(By.tagName("label")).size();
+            if (length == 9) {
+                pagebar.findElements(By.tagName("label")).get(5).click();
+            } else {
+                pagebar.findElements(By.tagName("label")).get(i+1).click();
+            }
+
             Thread.sleep(5000);
         }
     }
