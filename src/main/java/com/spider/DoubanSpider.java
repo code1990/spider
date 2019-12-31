@@ -18,9 +18,9 @@ public class DoubanSpider {
     @Test
     public void getInfo() throws Exception{
         String path = "C:\\Users\\Administrator\\Desktop\\ebook\\douban\\";
-        String kw = "量化";
+        String kw = "股票";
         String text = java.net.URLEncoder.encode(kw,"UTF-8");
-        int start =345;
+        int start =0;
         int end = 660;
         int step=15;
         boolean show = true;
@@ -28,7 +28,7 @@ public class DoubanSpider {
         for (int i = start; i <=end ; ) {
             String pageUrl = Main_URL+text+"&cat=1001&start="+i;
             System.out.println(pageUrl);
-            WebDriver driver = SpiderUtil.getChromeDriver(pageUrl,show);
+            WebDriver driver = SpiderUtil.getChromeDriver(pageUrl,false);
             WebElement element = null;
             element = driver.findElement(By.id("root"));
             List<WebElement> list = element.findElements(By.className("sc-bZQynM"));
