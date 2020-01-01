@@ -82,6 +82,9 @@ public class BingSearchUtil {
         resultList = new ArrayList<String>();
         File file = new File(filePath);
         try {
+            if(!file.exists()){
+                file.createNewFile();
+            }
             fileReader = new FileReader(file);
             bufferedReader = new BufferedReader(fileReader);
             String str = "";
@@ -209,6 +212,12 @@ public class BingSearchUtil {
     public static void writeAppendTxt(String pathTxt, List<String> resultList) {
         List<String> list = readTxt(pathTxt);
         list.addAll(resultList);
+        writeTxt(pathTxt,list);
+    }
+
+    public static void writeAppendTxt(String pathTxt, String str) {
+        List<String> list = readTxt(pathTxt);
+        list.add(str);
         writeTxt(pathTxt,list);
     }
 }

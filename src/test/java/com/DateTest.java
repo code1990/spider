@@ -48,4 +48,9 @@ public class DateTest {
             System.out.print(sdf2.format(lDate.get(i))+"\t");
         }
     }
+
+    @Test
+    public void testInfo123(){
+        System.out.println((3050.12-2875.81)/2875.81*100+"%");
+    }
 }
