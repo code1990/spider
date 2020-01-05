@@ -23,7 +23,7 @@ public class SpiderUtil {
     static {
 //        String driverClassPath = SpiderApplication.class.getClassLoader().getResource("chromedriver.exe").getPath();
 //        System.setProperty("webdriver.chrome.driver", driverClassPath);
-        System.setProperty("webdriver.chrome.driver", "C:\\driver\\chromedriver78.exe");
+        System.setProperty("webdriver.chrome.driver", "C:\\driver\\chromedriver.exe");
         //控制台关闭日志
         System.setProperty("webdriver.chrome.silentOutput", "true");
         java.util.logging.Logger.getLogger("org.openqa.selenium").setLevel(Level.OFF);

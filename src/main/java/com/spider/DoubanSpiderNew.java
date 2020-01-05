@@ -19,12 +19,16 @@ public class DoubanSpiderNew {
     private String Main_URL = "https://search.douban.com/book/subject_search?search_text=";
     private String userName = System.getProperty("user.name");
     private String path = "C:\\Users\\" + userName + "\\Desktop\\ebook\\douban\\";
-    private String kw = "";
+    private String kw = "时间";
     private String pathTxt = path + kw + ".txt";
     private String urlTxt = path + kw + "_url.txt";
     private String okTxt = path + kw + "_ok.txt";
     private String sortTxt = path + kw + "_sort.txt";
 
+    @Test
+    public void bookInfo(){
+//        sortTxt();
+    }
     //    @Test
 //    public void getInfo() throws Exception {
 //
