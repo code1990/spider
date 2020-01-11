@@ -14,23 +14,57 @@ import java.util.List;
  * @description
  * @date 2019/11/20
  */
-public class DoubanSpiderNewSimple2 {
+public class DoubanSpiderNewTmp {
     private String Main_URL = "https://search.douban.com/book/subject_search?search_text=";
     private String userName = System.getProperty("user.name");
     private String path = "C:\\Users\\" + userName + "\\Desktop\\ebook\\douban\\";
-    private String kw = "目标管理";
+    private String kw = "思维导图";
     private String pathTxt = path + kw + ".txt";
     private String urlTxt = path + kw + "_url.txt";
     private String okTxt = path + kw + "_ok.txt";
     private String sortTxt = path + kw + "_sort.txt";
 
-    @Test
-    public void bookInfo() throws Exception{
-//        saveBookUrl();
-        getBook();
-        sortBook();
-    }
-
+    //    @Test
+//    public void getInfo() throws Exception {
+//
+//
+//        String text = java.net.URLEncoder.encode(kw, "UTF-8");
+//        int start = 0;
+//        int end = 660;
+//        int step = 15;
+//        StringBuilder sb = new StringBuilder();
+//        List<String> resultList = BingSearchUtil.readTxt(pathTxt);
+//        sb.append(getListStr(resultList));
+//        WebDriver driver = BingSearchUtil.getChrome(false);
+//        for (int i = start; i <= end; ) {
+//            String pageUrl = Main_URL + text + "&cat=1001&start=" + i;
+//            System.out.println(pageUrl);
+//            driver.get(pageUrl);
+//            Thread.sleep(5000);
+//            WebElement element = null;
+//            element = driver.findElement(By.id("root"));
+//            List<WebElement> list = element.findElements(By.className("sc-bZQynM"));
+//            System.out.println(list.size());
+//            for (int j = 0; j < list.size(); j++) {
+//                String info = list.get(j).getText().replaceAll("\n", "\t") + "\n";
+//                System.out.print(i + "\t" + info);
+//                sb.append(i + "\t" + info);
+//            }
+//            System.out.println(sb.toString());
+//            TxtUtil.writeTxt(pathTxt, sb.toString());
+//            i += 15;
+//            Thread.sleep(5000);
+//            System.out.println("页>>" + i / 15 + 1);
+//        }
+//    }
+//
+//    public String getListStr(List<String> list) {
+//        StringBuilder sb = new StringBuilder();
+//        for (int i = 0; i < list.size(); i++) {
+//            sb.append(list.get(i) + "\n");
+//        }
+//        return sb.toString();
+//    }
     public List<String> getResultList(WebDriver driver, String url, int pageNumber) throws InterruptedException {
         System.out.println(pageNumber + ">>" + url);
         List<String> resultList = new ArrayList<>();
@@ -52,6 +86,7 @@ public class DoubanSpiderNewSimple2 {
         BingSearchUtil.writeTxt(okTxt, "0");
     }
 
+    @Test
     public void saveBookUrl() throws Exception {
         int allPage = 134;
         int currentPage = 0;
