@@ -42,6 +42,10 @@ public class HttpClientUtil {
         String result = null;
         CloseableHttpClient httpClient = HttpClients.createDefault();
         HttpGet get = new HttpGet(url);
+        // 浏览器表示
+        get.addHeader("User-Agent", "Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.7.6)");
+        // 传输的类型
+        get.addHeader("Content-Type", "application/x-www-form-urlencoded");
         CloseableHttpResponse response = null;
         try {
             response = httpClient.execute(get);

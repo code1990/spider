@@ -15,8 +15,9 @@ public class DbAPI {
     private String Main_URL = "https://api.douban.com/v2/book/search?";
     private String apiKey = "0df993c66c0c636e29ecbb5344252a4a";
     private String userName = System.getProperty("user.name");
-    private String path = "C:\\Users\\" + userName + "\\Desktop\\ebook\\douban\\";
-    private String kw = "java";
+//    private String path = "C:\\Users\\" + userName + "\\Desktop\\ebook\\douban\\";
+    private String path = "C:\\Users\\xiala\\Desktop\\ebook\\douban\\";
+    private String kw = "spring5";
     private String pathTxt = path + kw + ".txt";
     private String urlTxt = path + kw + "_url.txt";
     private String okTxt = path + kw + "_ok.txt";
@@ -28,11 +29,12 @@ public class DbAPI {
         saveInfo();
         dealInfo();
     }
-    @Test
+//    @Test
     public void getInfo()  {
         String url = "https://api.douban.com/v2/book/search?apikey=0df993c66c0c636e29ecbb5344252a4a&q=hadoop&start=200&count=30000";
         String str = HttpClientUtil.get(url);
         JSONObject jsonObject = JSONObject.parseObject(str);
+        System.out.println(jsonObject);
         JSONArray list = jsonObject.getJSONArray("books");
         for (int i = 0; i < list.size(); i++) {
             JSONObject object = JSONObject.parseObject(list.get(i).toString());
@@ -59,6 +61,8 @@ public class DbAPI {
             System.out.println(url);
             urlList.add(url);
         }
+        System.out.println(urlTxt);
+        System.out.println(okTxt);
         BingSearchUtil.writeTxt(urlTxt, urlList);
         BingSearchUtil.writeTxt(okTxt, "0");
     }
