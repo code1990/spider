@@ -87,7 +87,34 @@ public class TxtUtil {
             }
         }
     }
+    public static void writeTxt(String filePath, List<String> list)  {
+        FileWriter fw = null;
+        try {
+            File file = new File(filePath);
+            if (!file.getParentFile().exists()) {
+                file.getParentFile().mkdirs();
+            }
+            if (!file.exists()) {
+                file.createNewFile();
+            }
 
+            fw = new FileWriter(file);
+            for(String content:list){
+                fw.write(content+"\n");
+            }
+            fw.flush();
+            fw.close();
+            System.out.println("ok");
+        } catch (IOException e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                fw.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }
     /**
      * 对于文本文件内容过滤
      *
@@ -240,5 +267,25 @@ public class TxtUtil {
             list.add(f.getAbsolutePath());
         }
         return list;
+    }
+
+    public static void splitTxt(String path,int number) {
+        List<String> list = readTxt(path);
+        String name = path.split("\\.")[0];
+        StringBuilder sb = new StringBuilder();
+        for (int i = 0; i < list.size(); i++) {
+            String info = list.get(i);
+            if(i<list.size()-1){
+                if((i+1)%number==0){
+                    sb.append(info+"\n");
+                    writeTxt(name+"_"+(i+1)/number+".txt",sb.toString());
+                    sb.setLength(0);
+                }else{
+                    sb.append(info+"\n");
+                }
+            }else{
+                writeTxt(name+"_"+((i+1)/number+1)+".txt",sb.toString());
+            }
+        }
     }
 }

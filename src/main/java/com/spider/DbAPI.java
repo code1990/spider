@@ -6,18 +6,33 @@ import com.alibaba.fastjson.JSONArray;
 //import com.google.gson.JsonArray;
 //import com.google.gson.JsonArray;
 import com.util.HttpClientUtil;
+import com.util.TxtUtil;
 import org.junit.Test;
 
 import java.util.ArrayList;
 import java.util.List;
+//#老版
+//http://api.douban.com/v2/movie/in_theaters?apikey=0b2bdeda43b5688921839c8ecb20399b
+//        #新版
+//        http://t.yushu.im/v2/movie/in_theaters?apikey=0b2bdeda43b5688921839c8ecb20399b
+
+//# 基地址
+//http://t.yushu.im
+//        # 关键字搜索
+//        http://t.yushu.im/v2/book/search?q={}&start={}&count={}
+//        # isbn搜索
+//        http://t.yushu.im/v2/book/search/isbn/{isbn}
+//        # 豆瓣api
+//        https://api.douban.com/v2/book
+//        复制代码
 
 public class DbAPI {
-    private String Main_URL = "https://api.douban.com/v2/book/search?";
+    private String Main_URL = "http://t.yushu.im/v2/book/search?";
     private String apiKey = "0df993c66c0c636e29ecbb5344252a4a";
     private String userName = System.getProperty("user.name");
 //    private String path = "C:\\Users\\" + userName + "\\Desktop\\ebook\\douban\\";
     private String path = "C:\\Users\\xiala\\Desktop\\ebook\\douban\\";
-    private String kw = "spring5";
+    private String kw = "netty";
     private String pathTxt = path + kw + ".txt";
     private String urlTxt = path + kw + "_url.txt";
     private String okTxt = path + kw + "_ok.txt";
@@ -29,9 +44,9 @@ public class DbAPI {
         saveInfo();
         dealInfo();
     }
-//    @Test
+    @Test
     public void getInfo()  {
-        String url = "https://api.douban.com/v2/book/search?apikey=0df993c66c0c636e29ecbb5344252a4a&q=hadoop&start=200&count=30000";
+        String url = "http://t.yushu.im/v2/book/search?apikey=0b2bdeda43b5688921839c8ecb20399b&q=hadoop&start=200&count=30000";
         String str = HttpClientUtil.get(url);
         JSONObject jsonObject = JSONObject.parseObject(str);
         System.out.println(jsonObject);
@@ -45,10 +60,10 @@ public class DbAPI {
             String numRaters = rating.get("numRaters").toString();
             System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"+title);
             String catalog = object.get("catalog").toString();
-//            String info = title + "\t" + average + "\t" + numRaters + "\t" + author;
+            String info = title + "\t" + average + "\t" + numRaters + "\t" + author;
             System.out.println(catalog);
             System.out.println("<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<"+title);
-//            System.out.println(info);
+            System.out.println(info);
         }
     }
 
@@ -163,15 +178,23 @@ public class DbAPI {
                 JSONObject object = JSONObject.parseObject(list.get(i).toString());
                 String title = object.get("title").toString();
                 String catalog = object.get("catalog").toString();
+                JSONObject rating = JSONObject.parseObject(object.get("rating").toString());
+                String average = rating.get("average").toString();
+                String numRaters = rating.get("numRaters").toString();
                 if(!catalog.equals("") && BingSearchUtil.isContainChinese(catalog)){
                     catalogList.add(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"+title);
                     System.out.println(catalog);
                     catalogList.add(catalog);
+                    TxtUtil.writeTxt("C:\\Users\\xiala\\Desktop\\ebook\\douban\\"+kw+"\\"+numRaters+"_"+title+".md",catalog);
                     catalogList.add(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"+title);
                 }
             }
         }
         BingSearchUtil.writeTxt(catalogTxt, catalogList);
     }
+
+
+
+
 
 }
